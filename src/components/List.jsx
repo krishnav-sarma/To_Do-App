@@ -1,10 +1,14 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import todo_icon from "../assets/to-do.png";
 import Todo from "./Todo";
 import { useRef } from "react";
 
 const List = () => {
-  const [todoList, setTodoList] = useState([]);
+  const [todoList, setTodoList] = useState(
+    localStorage.getItem("todos")
+      ? JSON.parse(localStorage.getItem("todos"))
+      : []
+  );
 
   const inputRef = useRef();
 
@@ -25,8 +29,53 @@ const List = () => {
     inputRef.current.value = "";
   };
 
+  const deleteTodo = (id) => {
+    setTodoList((prvTodos) => {
+      return prvTodos.filter((todo) => todo.id !== id);
+    });
+  };
+
+  const toggle = (id) => {
+    setTodoList((prevTodos) => {
+      return prevTodos.map((todo) => {
+        if (todo.id == id) {
+          return { ...todo, isComplete: !todo.isComplete };
+        }
+        return todo;
+      });
+    });
+  };
+
+  let todaysDate = new Date();
+  let day = todaysDate.getDate();
+  let month = todaysDate.getMonth() + 1;
+  let year = todaysDate.getFullYear();
+  let date = `${day}/0${month}/${year}`;
+
+  let [time, setTime] = useState("");
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      const todaysDate = new Date();
+      const hours = todaysDate.getHours();
+      const minutes =
+        todaysDate.getMinutes() > 9
+          ? todaysDate.getMinutes()
+          : `0${todaysDate.getMinutes()}`;
+      setTime(`${hours}:${minutes}`);
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  time = time.toString();
+
+  useEffect(() => {
+    localStorage.setItem("todos", JSON.stringify(todoList));
+  }, [todoList]);
+
   return (
-    <div className=" w-11/12 max-w-md flex flex-col p-7  ml-[100px] min-h-[550px]">
+    <div className="relative w-11/12 max-w-md flex flex-col p-7 ml-[100px] ">
       {/* -----title----- */}
       <div className="flex gap-1 mt-[80px]">
         <img className="w-19 h-15" src={todo_icon} alt="" />
@@ -36,11 +85,15 @@ const List = () => {
             T
           </span>{" "}
         </h1>
+        <p className="flex text-[#F2F2F2] font-[monospace] text-[20px] ml-[910px]">
+          Date:{date} <br />
+          Time:{time}
+        </p>
       </div>
       <div className=" bg-[#F59E0B] h-1 w-[170px] mt-[-30px] ml-[99.5px] flex"></div>
 
       {/* -----input----- */}
-      <div className="flex items-center my7 bg-gray-200 rounded-full mt-4 w-[635px]">
+      <div className="flex items-center my7 bg-gray-200 rounded-full mt-4 w-[920px]">
         <input
           ref={inputRef}
           className="bg-transparent border-0 outline-none flex-1 h-12  pl-6 placeholder:text-slate-600"
@@ -58,11 +111,20 @@ const List = () => {
       {/* -----todo list----- */}
       <div>
         {todoList.map((item, index) => {
-          return <Todo key={index} text={item.text} />;
+          return (
+            <Todo
+              key={index}
+              text={item.text}
+              id={item.id}
+              isComplete={item.isComplete}
+              deleteTodo={deleteTodo}
+              toggle={toggle}
+            />
+          );
         })}
       </div>
 
-      {/* ---------- */}
+      {/* -------------------------------------------------------- */}
     </div>
   );
 };
@@ -70,6 +132,6 @@ const List = () => {
 export default List;
 
 {
-  /* <span className='text-[55px] text-[#F59E0B] font-[monospace] ml-2'>T</span> */
 }
-// className='bg-[#F5F5F5] place-self-center w-11/12 max-w-md flex flex-col p-7 min-h-[550px] rounded-xl'
+
+

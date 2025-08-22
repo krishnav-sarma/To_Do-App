@@ -1,12 +1,77 @@
-# React + Vite
+📝 React To-Do List App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple and minimal To-Do List application built with React + Tailwind CSS.
+It allows users to add, delete, and mark tasks as complete, with local storage support to persist data even after refreshing.
+Also includes date & time display in the header.
 
-Currently, two official plugins are available:
+🚀 Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+✅ Add new tasks
 
-## Expanding the ESLint configuration
+❌ Delete tasks
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+✏️ Mark tasks as complete / incomplete
+
+💾 Saves tasks in Local Storage
+
+⏰ Live Date & Time display
+
+🎨 Styled with Tailwind CSS for a modern UI
+
+🛠️ Tech Stack
+
+React
+
+Tailwind CSS
+
+Local Storage API
+
+📂 Project Structure
+src/
+│── assets/            # Icons & images  
+│── components/  
+│   ├── List.jsx       # Main To-Do List component  
+│   ├── Todo.jsx       # Single To-Do item component  
+│── App.jsx            # Root component  
+│── index.js           # Entry point  
+
+⚡ Installation & Setup
+
+Clone the repository
+
+git clone https://github.com/krishnav-sarma/todo-app.git
+cd todo-app
+
+
+Install dependencies
+
+npm install
+
+
+Run the app
+
+npm start
+
+
+Open in browser:
+
+http://localhost:3000
+
+📸 Screenshots
+🏠 Home Page
+
+(Add a screenshot of your app UI here)
+
+📌 Future Improvements
+
+✨ Add categories/tags for tasks
+
+🔔 Add task reminders
+
+📱 Make it fully responsive
+
+🌙 Add dark mode toggle
+
+👨‍💻 Author
+
+Developed by [Krishnav Sarma] 🚀
