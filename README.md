@@ -1,77 +1,80 @@
-📝 React To-Do List App
+# React To-Do List App 📝
 
-A simple and minimal To-Do List application built with React + Tailwind CSS.
-It allows users to add, delete, and mark tasks as complete, with local storage support to persist data even after refreshing.
-Also includes date & time display in the header.
+A simple and minimal **To-Do List application** built with **React + Tailwind CSS**.  
+It allows users to add, delete, and toggle tasks, with **localStorage persistence**, along with live **date and time display**.
 
-🚀 Features
+---
 
-✅ Add new tasks
+## 🚀 Features
+- ➕ Add new tasks
+- ❌ Delete tasks
+- ✅ Mark tasks as complete/incomplete
+- 💾 Persistent storage using `localStorage`
+- ⏰ Real-time clock & date display
+- 🎨 Styled with Tailwind CSS for a clean modern look
 
-❌ Delete tasks
+---
 
-✏️ Mark tasks as complete / incomplete
-
-💾 Saves tasks in Local Storage
-
-⏰ Live Date & Time display
-
-🎨 Styled with Tailwind CSS for a modern UI
-
-🛠️ Tech Stack
-
-React
-
-Tailwind CSS
-
-Local Storage API
-
-📂 Project Structure
+## 📂 Project Structure
+```
 src/
-│── assets/            # Icons & images  
-│── components/  
-│   ├── List.jsx       # Main To-Do List component  
-│   ├── Todo.jsx       # Single To-Do item component  
-│── App.jsx            # Root component  
-│── index.js           # Entry point  
+│── assets/
+│   └──All pngs/logo    # All assects
+│── components/
+│   ├── List.jsx        # Main To-Do List component
+│   └── Todo.jsx        # Individual Todo item component
+│── App.js              # App entry point
+│── index.js            # React DOM renderer
+```
 
-⚡ Installation & Setup
+---
 
-Clone the repository
+## ⚙️ Installation & Setup
+1. Clone this repository:
+   ```bash
+   git clone https://github.com/your-username/todo-app.git
+   cd todo-app
+   ```
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+3. Start development server:
+   ```bash
+   npm start
+   ```
 
-git clone https://github.com/krishnav-sarma/todo-app.git
-cd todo-app
+---
 
+## 🛠️ Usage
+- Type a task in the input field and click **ADD +**.
+- Click on a task to toggle **complete/incomplete**.
+- Use the ❌ delete button to remove a task.
+- Tasks are **saved automatically** in `localStorage`.
 
-Install dependencies
+---
 
-npm install
+## 📸 UI Overview
+- **Header** → App title + Logo + Date & Time  
+- **Input Field** → Add new task  
+- **Task List** → Display tasks with toggle & delete options  
 
+---
 
-Run the app
+## 🧰 Technologies Used
+- **React (Hooks + useState + useEffect)**
+- **Tailwind CSS**
+- **localStorage API**
 
-npm start
+---
 
+## 📌 Future Enhancements
+- ✨ Task editing option
+- 🔍 Filter tasks (All, Completed, Pending)
+- 📱 Responsive design improvements
+- 🌙 Dark/Light mode toggle
 
-Open in browser:
+---
 
-http://localhost:3000
-
-📸 Screenshots
-🏠 Home Page
-
-(Add a screenshot of your app UI here)
-
-📌 Future Improvements
-
-✨ Add categories/tags for tasks
-
-🔔 Add task reminders
-
-📱 Make it fully responsive
-
-🌙 Add dark mode toggle
-
-👨‍💻 Author
-
-Developed by [Krishnav Sarma] 🚀
+## 📝 License
+This project is open-source and free to use for learning and development purposes.
