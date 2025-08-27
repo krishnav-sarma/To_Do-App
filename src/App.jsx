@@ -4,7 +4,7 @@ import List from './components/List'
 
 const App = () => {
   return (
-    <div className='bg-[#2E2E2E] grid py-4 min-h-screen'>
+    <div className='bg-[#2E2E2E] grid py-4 min-h-screen '>
       <List/>
     </div>
   )

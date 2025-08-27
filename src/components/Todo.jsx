@@ -5,7 +5,7 @@ import del from "../assets/delete.png";
 
 const Todo = ({ text, id, isComplete, deleteTodo, toggle }) => {
   return (
-    <div className="flex items-center h-[10px] mt-15 w-[1100px]">
+    <div className="flex items-center h-[10px] mt-15 md:w-[1100px] w-[100%]">
       <div
         onClick={() => {
           toggle(id);
