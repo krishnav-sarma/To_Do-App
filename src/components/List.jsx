@@ -75,7 +75,7 @@ const List = () => {
   }, [todoList]);
 
   return (
-    <div className="relative w-11/12 max-w-md flex flex-col p-7 md:ml-[100px] ml-[5%]">
+    <div className="relative w-11/12  flex flex-col p-7 md:ml-[100px] bg-[#2E2E2E] max-w-screen min-h-screen ">
       {/* -----title----- */}
       <div className="flex gap-1 mt-[80px]">
         <img className="w-19 h-15" src={todo_icon} alt="" />
@@ -93,12 +93,13 @@ const List = () => {
       <div className=" bg-[#F59E0B] h-1 w-[170px] mt-[-30px] ml-[83.5px] flex"></div>
 
       {/* -----input----- */}
-      <div className="flex items-center my7 bg-gray-200 rounded-full mt-4 md:w-[920px] w-[100%]">
+      <div className="flex items-center my7 bg-gray-200 rounded-full mt-4 md:w-[920px] w-[110%]">
         <input
           ref={inputRef}
           className="bg-transparent border-0 outline-none flex-1 h-12  pl-6 placeholder:text-slate-600"
           type="text"
           placeholder="Add your task"
+          onKeyDown={(e) => e.key === "Enter" && add()}
         />
         <button
           onClick={add}
